@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
 import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
+import { licencesHtml } from '../../i18n/licences';
 const lang = 'pt';
 const title = `Aviso legal – ${SITE_NAMES[lang]}`;
 const description = 'Editor, responsável pelos conteúdos, alojamento, ausência de aconselhamento, propriedade intelectual, origem dos coeficientes, dados pessoais e lei aplicável.';
@@ -20,6 +21,9 @@ const description = 'Editor, responsável pelos conteúdos, alojamento, ausênci
     <p>O site disponibiliza gratuitamente simuladores e explicações, a título informativo. Os resultados são estimativas calculadas com os coeficientes oficiais e as normas citadas em cada página; não constituem aconselhamento personalizado nem substituem o contrato. Método e limites: <a href={route('method', lang)}>metodologia</a>.</p>
     <h2>Origem dos dados</h2>
     <p>Os coeficientes anuais de atualização das rendas são apurados pelo INE e publicados por aviso no Diário da República; cada valor é citado com o aviso que o publicou. O site não tem ligação ao INE nem a qualquer entidade pública.</p>
+    {/* site:debut */}
+    <Fragment set:html={licencesHtml(lang, 'h2')} />
+    {/* site:fin */}
     <h2>Limites de responsabilidade</h2>
     <p>Os parâmetros são atualizados e os cálculos verificados em casos de referência, sem garantia de ausência de erros. O editor não responde por decisões tomadas apenas com base numa estimativa. Um erro comunica-se pela página de <a href={route('contact', lang)}>contacto</a>.</p>
     <h2>Propriedade intelectual</h2>

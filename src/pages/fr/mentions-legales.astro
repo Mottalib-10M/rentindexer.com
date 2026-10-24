@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
 import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
+import { licencesHtml } from '../../i18n/licences';
 const lang = 'fr';
 const title = `Mentions légales – ${SITE_NAMES[lang]}`;
 const description = 'Éditeur, directeur de la publication, hébergeur, absence de conseil, propriété intellectuelle, données personnelles et droit applicable.';
@@ -25,6 +26,9 @@ const description = 'Éditeur, directeur de la publication, hébergeur, absence 
     <p>Les paramètres sont mis à jour et les calculs vérifiés sur des cas de référence, sans garantie d’absence d’erreur. L’éditeur ne peut être tenu responsable d’une décision prise sur la seule base d’une estimation. Une erreur se signale par la page <a href={route('contact', lang)}>contact</a>.</p>
     <h2>Propriété intellectuelle</h2>
     <p>Textes, graphismes et code restent la propriété de l’éditeur ; les courtes citations sont autorisées avec un lien vers la page d’origine.</p>
+    {/* site:debut */}
+    <Fragment set:html={licencesHtml(lang, 'h2')} />
+    {/* site:fin */}
     {/* gen-legal-pages:terms */}
     <h2>Données personnelles et cookies</h2>
     {GA4_ID ? (<p>Les saisies des calculateurs ne quittent pas votre navigateur. Le site dépose des cookies de mesure d’audience Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, 13 mois au plus), sans publicité{CLARITY_ID && ' ; la stabilité des pages est mesurée avec Microsoft Clarity, sans cookie'}. Détails, base juridique et moyens de vous y opposer : <a href={route('privacy', lang)}>politique de confidentialité</a> et page <a href={route('cookies', lang)}>cookies</a>.</p>) : (<p>Les saisies des calculateurs ne quittent pas votre navigateur et le site ne dépose aucun cookie{CLARITY_ID && ' ; la stabilité des pages est mesurée de façon anonyme avec Microsoft Clarity, sans cookie'}. Voir la <a href={route('privacy', lang)}>politique de confidentialité</a> et la page <a href={route('cookies', lang)}>cookies</a>.</p>)}

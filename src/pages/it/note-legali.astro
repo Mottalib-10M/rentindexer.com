@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
 import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
+import { licencesHtml } from '../../i18n/licences';
 const lang = 'it';
 const title = `Note legali – ${SITE_NAMES[lang]}`;
 const description = 'Editore, responsabile dei contenuti, hosting, assenza di consulenza, proprietà intellettuale, origine dei dati Istat, dati personali e legge applicabile.';
@@ -20,6 +21,9 @@ const description = 'Editore, responsabile dei contenuti, hosting, assenza di co
     <p>Il sito mette a disposizione gratuitamente calcolatori e spiegazioni, a titolo informativo. I risultati sono stime calcolate con gli indici ufficiali e le norme citate in ogni pagina; non costituiscono una consulenza personalizzata né sostituiscono il contratto. Metodo e limiti: <a href={route('method', lang)}>metodologia</a>.</p>
     <h2>Origine dei dati</h2>
     <p>Gli indici FOI senza tabacchi e i coefficienti di raccordo sono pubblicati dall’Istat e riutilizzati secondo la licenza Creative Commons Attribuzione 4.0 (CC BY 4.0), citando la fonte e il mese. Il sito non è collegato all’Istat e l’Istat non ne approva i contenuti.</p>
+    {/* site:debut */}
+    <Fragment set:html={licencesHtml(lang, 'h2')} />
+    {/* site:fin */}
     <h2>Limiti di responsabilità</h2>
     <p>I parametri sono aggiornati e i calcoli verificati su casi di riferimento, senza garanzia di assenza di errori. L’editore non risponde di decisioni prese sulla sola base di una stima. Un errore si segnala dalla pagina <a href={route('contact', lang)}>contatti</a>.</p>
     <h2>Proprietà intellettuale</h2>

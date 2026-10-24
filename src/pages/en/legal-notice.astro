@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
 import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
+import { licencesHtml } from '../../i18n/licences';
 const lang = 'en';
 const title = `Legal notice – ${SITE_NAMES[lang]}`;
 const description = 'Publisher, editor in charge, host, no advice, intellectual property, personal data and governing law for this site.';
@@ -25,6 +26,9 @@ const description = 'Publisher, editor in charge, host, no advice, intellectual 
     <p>Parameters are updated and calculations checked against reference cases, with no guarantee that errors are absent. The publisher is not liable for a decision made on an estimate alone. Please report errors through the <a href={route('contact', lang)}>contact page</a>.</p>
     <h2>Intellectual property</h2>
     <p>Texts, design and code belong to the publisher; short quotations with a link to the original page are welcome.</p>
+    {/* site:debut */}
+    <Fragment set:html={licencesHtml(lang, 'h2')} />
+    {/* site:fin */}
     {/* gen-legal-pages:terms */}
     <h2>Personal data and cookies</h2>
     {GA4_ID ? (<p>What you type in the calculators stays in your browser. The site sets Google Analytics audience measurement cookies (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, 13 months at most), with no advertising{CLARITY_ID && '; page stability is monitored with Microsoft Clarity, cookie-free'}. Details, legal basis and how to object: <a href={route('privacy', lang)}>privacy policy</a> and <a href={route('cookies', lang)}>cookies</a> page.</p>) : (<p>What you type in the calculators stays in your browser and the site sets no cookies{CLARITY_ID && '; page stability is monitored anonymously with Microsoft Clarity, cookie-free'}. See the <a href={route('privacy', lang)}>privacy policy</a> and the <a href={route('cookies', lang)}>cookies</a> page.</p>)}

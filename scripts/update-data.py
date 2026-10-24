@@ -22,6 +22,11 @@ Une source par pays, toujours l'institut ou l'administration qui publie l'indice
       main : un chiffre par aviso publié au DR, publié au plus tard le 30 octobre).
   AT  Statistik Austria, OGD : VPI 2020 (OGD_vpi20_VPI_2020_1, 2021-2025) et VPI 2025
       (OGD_vpi25c18_VPI_2025COICOP18_1, depuis janv. 2026). CC BY 4.0.
+  BOE Veille du Real Decreto-ley 29/2026 (plafond de 2 %) : API de données ouvertes du BOE,
+      champ estatus_derogacion (scripts/check-boe.py). Dérogé ou annulé = échec, rien n'est republié.
+
+Saisis à la main (aucune relecture automatique) : data/pt-coeficientes.json, facteurs de correction
+flamands et bruxellois (data/params-regles-2026.json), coefficients de raccordement Istat (moteur).
 
 Usage :
   python3 scripts/update-data.py                 # tout
@@ -265,6 +270,14 @@ def update_at():
         'verkettung_2020_2025': v20['2025'] / 100})
 
 
+def update_boe():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('check_boe', os.path.join(ROOT, 'scripts', 'check-boe.py'))
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    det = m.verifier(write=True)
+    print(f"  BOE : RDL 29/2026 en vigueur (estatus_derogacion = {det['estatus_derogacion']})")
+
+
 def main(argv):
     if len(argv) > 2 and argv[1] == '--bootstrap-be':
         bootstrap_be(argv[2]); return 0
@@ -272,7 +285,7 @@ def main(argv):
     for a in argv[1:]:
         if a.startswith('--only='):
             only = set(a.split('=', 1)[1].split(','))
-    jobs = {'fr': update_fr, 'be': update_be, 'es': update_es, 'it': update_it, 'at': update_at}
+    jobs = {'fr': update_fr, 'be': update_be, 'es': update_es, 'it': update_it, 'at': update_at, 'boe': update_boe}
     failed = []
     for k, f in jobs.items():
         if only and k not in only:

@@ -26,7 +26,7 @@ const es: typeof fr = {
   asOf: 'Índices oficiales revisados en', lastUpdated: 'web revisada el',
   footerValidated: 'Fuentes: INE (IPC e IRAV), BOE (Ley de Arrendamientos Urbanos y Real Decreto-ley 29/2026)',
   footerBrowser: 'Se calcula en tu navegador · no se envía ningún dato · gratis · sin formularios ni teléfonos',
-  footerDisclaimer: 'Sitio independiente publicado por Radif Partners, sin relación con el INE, el Ministerio de Vivienda ni ningún organismo público. Los resultados son estimaciones con los índices oficiales publicados, citados con su mes; no sustituyen al contrato ni a un asesoramiento jurídico. Basado en datos del Instituto Nacional de Estadística y de la Agencia Estatal Boletín Oficial del Estado.',
+  footerDisclaimer: 'Sitio independiente publicado por Radif Partners, sin relación con el INE, el Ministerio de Vivienda ni ningún organismo público. Los resultados son estimaciones con los índices oficiales publicados, citados con su mes; no sustituyen al contrato ni a un asesoramiento jurídico.',
   footerPopular: '', notFound: 'Esta página no existe.', readMore: 'Leer más', allPages: 'Todas las páginas',
 };
 const it: typeof fr = {
@@ -36,7 +36,7 @@ const it: typeof fr = {
   asOf: 'Indici ufficiali verificati nel', lastUpdated: 'sito controllato il',
   footerValidated: 'Fonti: Istat (indice FOI senza tabacchi), Normattiva (legge 392/1978, legge 431/1998, D.Lgs. 23/2011)',
   footerBrowser: 'Calcolato nel tuo browser · nessun dato inviato · gratuito · nessun modulo né telefono',
-  footerDisclaimer: 'Sito indipendente pubblicato da Radif Partners, senza legami con l’Istat né con alcun ente pubblico. I risultati sono stime a titolo indicativo, basate sugli indici ufficiali pubblicati e citati con il loro mese; non sostituiscono il contratto né una consulenza legale. Dati Istat, licenza CC BY 4.0.',
+  footerDisclaimer: 'Sito indipendente pubblicato da Radif Partners, senza legami con l’Istat né con alcun ente pubblico. I risultati sono stime a titolo indicativo, basate sugli indici ufficiali pubblicati e citati con il loro mese; non sostituiscono il contratto né una consulenza legale.',
   footerPopular: '', notFound: 'Questa pagina non esiste.', readMore: 'Continua a leggere', allPages: 'Tutte le pagine',
 };
 const pt: typeof fr = {
@@ -56,7 +56,7 @@ const de: typeof fr = {
   asOf: 'Amtliche Indexwerte geprüft im', lastUpdated: 'Seite geprüft am',
   footerValidated: 'Quellen: Statistik Austria (VPI), RIS (Mieten-Wertsicherungsgesetz, Mietrechtsgesetz)',
   footerBrowser: 'Gerechnet in Ihrem Browser · keine Daten übertragen · kostenlos · kein Formular, kein Telefon',
-  footerDisclaimer: 'Unabhängige Seite von Radif Partners, ohne Verbindung zur Statistik Austria oder zu einer Behörde. Die Ergebnisse sind Schätzungen auf Grundlage der veröffentlichten amtlichen Indexwerte, mit Monat angegeben; sie ersetzen weder den Mietvertrag noch eine Rechtsberatung. Daten: Statistik Austria, CC BY 4.0.',
+  footerDisclaimer: 'Unabhängige Seite von Radif Partners, ohne Verbindung zur Statistik Austria oder zu einer Behörde. Die Ergebnisse sind Schätzungen auf Grundlage der veröffentlichten amtlichen Indexwerte, mit Monat angegeben; sie ersetzen weder den Mietvertrag noch eine Rechtsberatung.',
   footerPopular: '', notFound: 'Diese Seite gibt es nicht.', readMore: 'Weiterlesen', allPages: 'Alle Seiten',
 };
 const en: typeof fr = {

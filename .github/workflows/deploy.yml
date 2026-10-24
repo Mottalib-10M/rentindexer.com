@@ -7,7 +7,8 @@ name: Indices officiels et déploiement sur GitHub Pages
 # VPI vers le 15-20. Une passe chaque jour ouvrable : update-data.py n'écrit un fichier que si la
 # lecture est complète et cohérente (sinon il sort en erreur et rien n'est publié), et le commit
 # n'a lieu que si une valeur a changé. Le coefficient portugais (Diário da República, au plus tard
-# le 30 octobre) se saisit à la main dans data/pt-coeficientes.json, avec l'aviso.
+# le 30 octobre) se saisit à la main dans data/pt-coeficientes.json, avec l'aviso. La même passe lit
+# dans l'API du BOE le statut du RDL 29/2026 (check-boe.py) : dérogé ou annulé = échec, pas de republication.
 on:
   push:
     branches: ['main']
@@ -41,7 +42,7 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
-      - name: Indices officiels (Insee, Statbel, INE, Istat, Statistik Austria)
+      - name: Indices officiels (Insee, Statbel, INE, Istat, Statistik Austria) et veille BOE du RDL 29/2026
         run: python3 scripts/update-data.py
       - name: Tests du moteur sur les nouvelles valeurs
         run: npx vitest run

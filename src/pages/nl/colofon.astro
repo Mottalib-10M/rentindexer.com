@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
 import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
+import { licencesHtml } from '../../i18n/licences';
 const lang = 'nl';
 const title = `Disclaimer en colofon – ${SITE_NAMES[lang]}`;
 const description = 'Uitgever, verantwoordelijke voor de inhoud, host, geen advies, intellectueel eigendom, persoonsgegevens en toepasselijk recht.';
@@ -25,6 +26,9 @@ const description = 'Uitgever, verantwoordelijke voor de inhoud, host, geen advi
     <p>De parameters worden bijgewerkt en de berekeningen getoetst aan referentiegevallen, zonder garantie dat ze foutloos zijn. De uitgever is niet aansprakelijk voor een beslissing die alleen op een schatting berust. Fouten meldt u via de <a href={route('contact', lang)}>contactpagina</a>.</p>
     <h2>Intellectueel eigendom</h2>
     <p>Teksten, vormgeving en code zijn eigendom van de uitgever; korte citaten met een link naar de oorspronkelijke pagina zijn toegestaan.</p>
+    {/* site:debut */}
+    <Fragment set:html={licencesHtml(lang, 'h2')} />
+    {/* site:fin */}
     {/* gen-legal-pages:terms */}
     <h2>Persoonsgegevens en cookies</h2>
     {GA4_ID ? (<p>Wat u in de rekenhulpen invult, verlaat uw browser niet. De site plaatst cookies voor bezoekersmeting van Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, hoogstens 13 maanden), zonder advertenties{CLARITY_ID && '; de stabiliteit van de pagina’s wordt gemeten met Microsoft Clarity, zonder cookies'}. Details, grondslag en bezwaar: <a href={route('privacy', lang)}>privacyverklaring</a> en pagina <a href={route('cookies', lang)}>cookies</a>.</p>) : (<p>Wat u in de rekenhulpen invult, verlaat uw browser niet en de site plaatst geen cookies{CLARITY_ID && '; de stabiliteit van de pagina’s wordt anoniem gemeten met Microsoft Clarity, zonder cookies'}. Zie de <a href={route('privacy', lang)}>privacyverklaring</a> en de pagina <a href={route('cookies', lang)}>cookies</a>.</p>)}

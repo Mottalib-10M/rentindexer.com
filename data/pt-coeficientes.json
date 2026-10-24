@@ -7,7 +7,7 @@
    "valor": 1.0256,
    "aviso": "Aviso n.º 24199/2026/2",
    "data_dr": "2026-10-01",
-   "verificado": "título do aviso lido em diariodarepublica.pt (2026-10-24) ; valor concordante Cuatrecasas, DECO Proteste, APCMC"
+   "verificado": "PDF do DR lido (sources/dr-aviso-24199-2026-coef-2027.pdf, DR n.º 191/2026, Série II, p. 290, lido em 2026-10-24) : « é de 1,0256 »"
   },
   "2026": {
    "valor": 1.0224,
@@ -34,10 +34,10 @@
    "data_dr": "2022-10-21"
   }
  },
- "regle_publication": "Tous les coefficients de ce fichier ont été relus au Diário da República (phase 2, 2026-10-24).",
+ "regle_publication": "Coefficients relus un à un dans le PDF de chaque aviso au Diário da República le 2026-10-24, puis saisis à la main dans ce fichier (pas de relecture automatique).",
  "arredondamento": "NRAU art. 25.º (redação da Lei n.º 31/2012) : renda arredondada para a unidade cêntimo imediatamente superior",
  "urls": {
-  "2027": "https://diariodarepublica.pt/dr/detalhe/aviso/24199-2026-1175645456",
+  "2027": "https://files.diariodarepublica.pt/2s/2026/10/191000000/0029000290.pdf",
   "2026": "https://diariodarepublica.pt/dr/detalhe/aviso/23174-2025-935742337",
   "2025": "https://files.diariodarepublica.pt/2s/2024/10/203000000/0005900059.pdf",
   "2024": "https://diariodarepublica.pt/dr/detalhe/aviso/20980-a-2023-223473619",

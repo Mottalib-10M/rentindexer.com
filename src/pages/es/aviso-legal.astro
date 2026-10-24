@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import LegalIdentity from '../../components/LegalIdentity.astro';
 import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
 import { route } from '../../i18n/routes';
+import { licencesHtml } from '../../i18n/licences';
 const lang = 'es';
 const title = `Aviso legal – ${SITE_NAMES[lang]}`;
 const description = 'Titular, responsable de contenidos, alojamiento, ausencia de asesoramiento, propiedad intelectual, datos personales y ley aplicable.';
@@ -25,6 +26,9 @@ const description = 'Titular, responsable de contenidos, alojamiento, ausencia d
     <p>Los parámetros se actualizan y los cálculos se comprueban con casos de referencia, sin garantía de ausencia de errores. El titular no responde de una decisión tomada solo a partir de una estimación. Los errores se comunican por la página de <a href={route('contact', lang)}>contacto</a>.</p>
     <h2>Propiedad intelectual</h2>
     <p>Textos, diseño y código pertenecen al titular; se permiten citas breves con enlace a la página de origen.</p>
+    {/* site:debut */}
+    <Fragment set:html={licencesHtml(lang, 'h2')} />
+    {/* site:fin */}
     {/* gen-legal-pages:terms */}
     <h2>Datos personales y cookies</h2>
     {GA4_ID ? (<p>Lo que introduce en las calculadoras no sale de su navegador. El sitio instala cookies de medición de audiencia de Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, 13 meses como máximo), sin publicidad{CLARITY_ID && '; la estabilidad de las páginas se mide con Microsoft Clarity, sin cookies'}. Detalles, base jurídica y cómo oponerse: <a href={route('privacy', lang)}>política de privacidad</a> y página de <a href={route('cookies', lang)}>cookies</a>.</p>) : (<p>Lo que introduce en las calculadoras no sale de su navegador y el sitio no instala cookies{CLARITY_ID && '; la estabilidad de las páginas se mide de forma anónima con Microsoft Clarity, sin cookies'}. Véase la <a href={route('privacy', lang)}>política de privacidad</a> y la página de <a href={route('cookies', lang)}>cookies</a>.</p>)}

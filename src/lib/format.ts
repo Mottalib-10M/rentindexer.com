@@ -22,7 +22,9 @@ export function formatDecimal(value: number, max = 2, lang?: string): string {
 }
 /** Valeur déjà exprimée en % (1,57 → « 1,57 % ») ; espace insécable avant % dans toutes les langues. */
 export function formatPct(value: number, decimals = 2, lang?: string): string {
-  return `${nf({ minimumFractionDigits: decimals, maximumFractionDigits: decimals }, lang).format(value)} %`;
+  // Anglais, italien, portugais : signe collé (« 1.57% ») ; l'anglais affichait « +1.57 % » jusqu'au 2026-10-24.
+  const colle = /^(en|it|pt)/.test(tagOf(lang));
+  return `${nf({ minimumFractionDigits: decimals, maximumFractionDigits: decimals }, lang).format(value)}${colle ? '' : '\u00a0'}%`;
 }
 export function formatPercent(value: number, decimals = 1, lang?: string): string {
   return formatPct(value * 100, decimals, lang);

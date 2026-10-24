@@ -86,7 +86,7 @@ export default function AtCalc({ lang: l, modo = 'mieweg', methodHref }: Props) 
         warn={tr(l, { de: `Der Jahresdurchschnitt ${vor} des VPI erscheint im Jänner ${jahr}. Erst dann steht der Prozentsatz fest.`, en: `The ${vor} annual average of the CPI comes out in January ${jahr}; only then is the percentage known.` })}
         rows={zs ? [
           { label: tr(l, { de: `Zwischenstand Jänner bis ${mois(zs.bis, l)} (kein amtlicher Wert)`, en: `Running figure January to ${mois(zs.bis, l)} (not official)` }), value: pc(zs.prozent, l) },
-          { label: tr(l, { de: 'Höchstens bei MRG-Mietzinsbeschränkung', en: 'Cap for rent-controlled flats' }), value: '2,00 %' },
+          { label: tr(l, { de: 'Höchstens bei MRG-Mietzinsbeschränkung', en: 'Cap for rent-controlled flats' }), value: pc(2, l) },
         ] : []} />
     } />;
   }

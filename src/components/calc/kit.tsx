@@ -84,7 +84,8 @@ export function Frame({ form, result, after }: { form: ReactNode; result: ReactN
 }
 
 /** Rangée de deux champs alignés (même haut, même hauteur, RECETTE §10.3). */
-export const Row2 = ({ children }: { children: ReactNode }) => <div className="grid grid-cols-2 gap-x-4 gap-y-4">{children}</div>;
+// Une colonne sur téléphone : à deux, les listes se tronquaient (« Mainland … », eu-rent-indexation, 2026-10-24).
+export const Row2 = ({ children }: { children: ReactNode }) => <div className="grid gap-x-4 gap-y-4 sm:grid-cols-2">{children}</div>;
 
 /** Lettre générée dans le navigateur (rien n'est envoyé) : texte à copier. */
 export function Letter({ lang, title, text }: { lang: L; title: string; text: string }) {

@@ -33,7 +33,7 @@ export default function ItCalc({ lang: l, modo = 'affitto', methodHref }: Props)
         </Row2>
         <Row2>
           <SelectField id="it-reg" label={tr(l, { it: 'Tipo di contratto', en: 'Type of lease' })} value={String(v.reg)} onChange={(x) => set('reg')(Number(x))} options={REGIMI.map((x, i) => ({ value: String(i), label: rl[x] }))} />
-          {reg === 'libero' ? <SelectField id="it-quota" label={tr(l, { it: 'Quota pattuita della variazione', en: 'Share of the change agreed' })} value={String(v.quota)} onChange={(x) => set('quota')(Number(x))} options={[{ value: '100', label: '100 %' }, { value: '75', label: '75 %' }]} /> : <div />}
+          {reg === 'libero' ? <SelectField id="it-quota" label={tr(l, { it: 'Quota pattuita della variazione', en: 'Share of the change agreed' })} value={String(v.quota)} onChange={(x) => set('quota')(Number(x))} options={[{ value: '100', label: pc(100, l, 0) }, { value: '75', label: pc(75, l, 0) }]} /> : <div />}
         </Row2>
       </>
     );
@@ -43,7 +43,7 @@ export default function ItCalc({ lang: l, modo = 'affitto', methodHref }: Props)
         warn={r.bloque ? tr(l, { it: 'Con la cedolare secca la facoltà di chiedere l’aggiornamento Istat è sospesa per tutta la durata dell’opzione (D.Lgs. 23/2011, art. 3, c. 11).', en: 'Under cedolare secca the right to an Istat update is suspended for as long as the option runs (Legislative Decree 23/2011, art. 3(11)).' }) : undefined}
         rows={[
           { label: tr(l, { it: `Variazione FOI ${mois(m, l)} su un anno`, en: `FOI change to ${mois(m, l)}, 12 months` }), value: pc(f.varAnno!, l, 1) },
-          { label: tr(l, { it: 'Quota applicata', en: 'Share applied' }), value: r.bloque ? '0 %' : pc(quota * 100, l, 0) },
+          { label: tr(l, { it: 'Quota applicata', en: 'Share applied' }), value: pc(r.bloque ? 0 : quota * 100, l, 0) },
           { label: tr(l, { it: 'Aumento applicato', en: 'Increase applied' }), value: pc(r.taux, l) },
           { label: tr(l, { it: 'Nuovo canone', en: 'New rent' }), value: eur(r.nouveauLoyer, l), strong: true },
         ]}

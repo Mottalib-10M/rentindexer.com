@@ -1,0 +1,28 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, SITE_NAMES } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'pt';
+const title = `Cookies – ${SITE_NAMES[lang]}`;
+const description = GA4_ID ? 'Apenas cookies de medição de audiência do Google Analytics: nomes, finalidade, duração máxima de 13 meses, prestador e como se opor.' : 'O site não instala nenhum cookie: os dados introduzidos ficam no seu navegador e nada é guardado no seu dispositivo.';
+---
+{/* Escrita à mão segundo o modelo de scripts/gen-legal-pages.py : mesmos factos, mesmas condições. */}
+<PageLayout title={title} description={description} lang={lang} noindex={true} breadcrumbs={[{ label: 'Cookies' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Cookies</h1>
+    {GA4_ID ? (<>
+    <p>O site instala os cookies de medição de audiência do Google Analytics, e apenas esses: nenhum cookie publicitário nem de redes sociais. O detalhe dos tratamentos está na <a href={route('privacy', lang)}>política de privacidade</a>.</p>
+    <table><thead><tr><th>Nome</th><th>Prestador</th><th>Finalidade</th><th>Duração</th></tr></thead><tbody>
+    <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Distinguir os visitantes por um identificador aleatório</td><td>13 meses no máximo (390 dias)</td></tr>
+    <tr><td><code>_ga_{GA4_ID.replace('G-', '')}</code></td><td>Google Analytics</td><td>Guardar o estado da visita</td><td>13 meses no máximo (390 dias)</td></tr>
+    </tbody></table>
+    <p>Prestador: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlanda. Fundamento: interesse legítimo do responsável (art. 6.º, n.º 1, al. f) do RGPD). Para se opor: bloqueie os cookies no navegador ou instale o <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">extra de desativação do Google Analytics</a>.</p>
+    </>) : (<>
+    <p>O site <strong>não instala nenhum cookie</strong>. O detalhe dos tratamentos está na <a href={route('privacy', lang)}>política de privacidade</a>.</p>
+    </>)}
+    {CLARITY_ID && (<><h2>Microsoft Clarity, sem cookies</h2><p>A estabilidade das páginas é medida com o Microsoft Clarity sem cookies: cada página vista recebe um identificador descartável e o conteúdo das páginas e os seus dados ficam ocultos. Bloquear <code>clarity.ms</code> desativa-o.</p></>)}
+    <h2>Os dados que introduz</h2>
+    <p>Os cálculos fazem-se no seu navegador: o que introduz não é enviado a nenhum servidor e desaparece quando fecha a página.</p>
+    <p>Uma pergunta: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Atualização: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,66 @@
+{
+ "retrieved_at": "2026-10-24",
+ "fr": {
+  "formule": "loyer × IRL du trimestre de référence de l'année N / IRL du même trimestre N-1",
+  "trimestre_par_defaut": "dernier IRL publié à la signature du bail, si le bail ne le précise pas",
+  "gel_dpe_FG": {"metropole_depuis": "2022-08-24", "dom_depuis": "2024-07-01", "regle": "révision interdite si le bail est signé, renouvelé ou tacitement reconduit depuis cette date et que le logement est classé F ou G au DPE"},
+  "zones": ["metropole", "corse", "dom"],
+  "source": "service-public.gouv.fr F13723, vérifié le 15 octobre 2026",
+  "source_url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F13723",
+  "fichier_lu": "sources/sp-F13723-irl.txt"
+ },
+ "be": {
+  "formule": "loyer de base × nouvel indice santé / indice de départ (art. 1728bis de l'ancien Code civil)",
+  "indice_depart": "indice santé du mois précédant la conclusion (signature) du bail",
+  "nouvel_indice": {"bruxelles": "mois précédant l'anniversaire de l'entrée en vigueur", "wallonie": "mois précédant l'anniversaire de l'entrée en vigueur", "flandre": "indice au moment de la demande écrite (au plus tôt à l'anniversaire)"},
+  "retroactivite_mois": 3,
+  "conditions": {"bruxelles": "bail enregistré et certificat PEB valide communiqué", "wallonie": "bail de résidence principale enregistré (depuis le 01/09/2018)"},
+  "bruxelles": {
+   "facteur_correction": "baux entrés en vigueur avant le 14/10/2022, PEB E, F ou G : résultat × facteur ; E = 0,5 × (indice A + indice B) / indice B ; F et G = indice A / indice B, où A et B sont les indices des anniversaires 2021/2022 ou 2022/2023 selon la date anniversaire (avant ou après le 14 octobre)",
+   "source_url": "https://be.brussels/fr/logement/location/bail-dhabitation/indexation-des-loyers/indexation-des-loyers-avec-facteur-de-correction",
+   "base_legale": "Code bruxellois du Logement, art. 224/2 ; ordonnance du 13 octobre 2023",
+   "fichier_lu": "sources/bxl-facteur-correction.txt"
+  },
+  "wallonie": {
+   "limitation_2022_2023": {"periode": ["2022-11-01", "2023-10-31"], "part_indexation": {"A": 1, "B": 1, "C": 1, "D": 0.75, "E": 0.5, "F": 0, "G": 0, "sans": 0}, "calcul": "(loyer indexé − loyer dû) × part"},
+   "depuis_2023_11_01": "labels D à G : loyer de base = loyer adapté entre le 01/11/2022 et le 31/10/2023 ; indice de départ = indice du mois précédant l'anniversaire tombé dans cette période",
+   "saut_index_2016": "baux en cours au 01/04/2016 : saut d'index à prendre en compte (à documenter en phase 2 avant publication)",
+   "source_url": "https://www.wallonie.be/fr/demarches/indexer-un-loyer",
+   "fichier_lu": "sources/wallonie-indexation.txt"
+  },
+  "flandre": {
+   "correctiefactor": {"conditions": "bail entré en vigueur avant le 01/10/2022, EPC D, E, F ou sans EPC (ou EPC périmé), marché privé, résidence principale",
+    "par_mois_anniversaire": {
+     "10": {"D": 0.949447646, "EFsans": 0.898895293}, "11": {"D": 0.945356473, "EFsans": 0.890712946},
+     "12": {"D": 0.951977401, "EFsans": 0.903954802}, "01": {"D": 0.951950895, "EFsans": 0.903901791},
+     "02": {"D": 0.961757813, "EFsans": 0.923515625}, "03": {"D": 0.967996216, "EFsans": 0.935992433},
+     "04": {"D": 0.965766823, "EFsans": 0.931533646}, "05": {"D": 0.971941594, "EFsans": 0.943883189},
+     "06": {"D": 0.972124068, "EFsans": 0.944248135}, "07": {"D": 0.976119286, "EFsans": 0.952238571},
+     "08": {"D": 0.977109655, "EFsans": 0.954219311}, "09": {"D": 0.980049682, "EFsans": 0.960099363}},
+    "exemple_officiel": {"loyer_base": 600, "indice_depart": 108.98, "nouvel_indice": 132.96, "mois": "11", "label": "D", "attendu": 692.02}},
+   "source_url": "https://www.vlaanderen.be/bouwen-wonen-en-energie/huren-en-verhuren/een-huis-of-appartement-huren/een-huis-of-appartement-huren-op-de-privemarkt-0/tijdens-de-huurovereenkomst/huurprijsindexatie-met-correctiefactoren",
+   "fichier_lu": "sources/vlaanderen-correctiefactoren.txt"
+  }
+ },
+ "es": {
+  "indice": {"contratos_desde_2023_05_26": "IRAV (tope del art. 18 LAU en la redacción del RDL 29/2026 ; « en todo caso » el incremento no puede exceder el IRAV)", "contratos_anteriores": "índice pactado (habitualmente IPC general, variación anual)", "sin_pacto": "sin actualización (art. 18.1 LAU)"},
+  "mes_referencia": "último índice publicado en la fecha de actualización",
+  "limitacion_extraordinaria": {"norma": "Real Decreto-ley 29/2026, de 6 de octubre, disposición final sexta (BOE-A-2026-20823)", "vigencia": ["2026-10-08", "2027-12-31"], "regla": "anualidades que se cumplan en el periodo : renta por encima del límite del sistema estatal de índices de precios de referencia → sin incremento ; en los demás casos, nuevo pacto entre las partes ; sin pacto, máximo 2 %", "estado": "pendiente de convalidación por el Congreso (el RDL 26/2026, idéntico, fue derogado el 2 de octubre de 2026) : vigilar el BOE antes de publicar y cada semana", "fichier_lu": "sources/boe-rdl-29-2026.txt"},
+  "locales_comerciales": "libertad de pacto (sin tope IRAV)",
+  "source_url": "https://www.boe.es/buscar/act.php?id=BOE-A-2026-20823"
+ },
+ "it": {
+  "indice": "FOI senza tabacchi, variazione percentuale sullo stesso mese dell'anno precedente (mese indicato nel contratto)",
+  "regimi": {"libero_4_4": "fino al 100 % della variazione se pattuito (L. 431/1998)", "concordato_3_2": "secondo l'accordo territoriale, di norma 75 %", "uso_diverso_commerciale": "massimo 75 % (L. 392/1978, art. 32)", "cedolare_secca": "nessun aggiornamento ISTAT per tutta la durata dell'opzione"},
+  "a_verificare_fase2": "testi di legge (Normattiva) per art. 32 L. 392/1978, L. 431/1998 e art. 3 D.Lgs. 23/2011 (cedolare secca) da leggere e citare prima della pubblicazione"
+ },
+ "pt": {"ficheiro": "pt-coeficientes.json"},
+ "at": {
+  "norma": "Mieten-Wertsicherungsgesetz (MieWeG), BGBl. I Nr. 114/2025, in Kraft seit 01.01.2026",
+  "modell": "Anpassung jährlich am 1. April um die durchschnittliche Veränderung des VPI im Vorjahr (Jahresdurchschnitte) ; Anteil über 3 % nur zur Hälfte ; erste Valorisierung aliquot (volle Monate des Vorjahres / 12) ; Rundung auf ganze Cent",
+  "mrg_mietzinsbeschraenkung": "Veränderung für das Jahr 2025 höchstens 1 %, für 2026 höchstens 2 % (§ 1 Abs. 3)",
+  "nicht_anwendbar": "WGG-Verträge (außer § 13 Abs. 4 WGG) ; Vollausnahmen des MRG ; Geschäftsraummiete",
+  "source_url": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20013068",
+  "fichier_lu": "sources/ris-mieweg.txt"
+ }
+}

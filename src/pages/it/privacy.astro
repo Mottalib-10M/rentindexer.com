@@ -1,0 +1,50 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'it';
+const title = `Informativa sulla privacy – ${SITE_NAMES[lang]}`;
+const description = GA4_ID ? 'Misurazione del pubblico con Google Analytics e cookie, senza pubblicità; i dati inseriti restano nel browser; log dell’hosting; i tuoi diritti.' : 'I dati inseriti restano nel tuo browser, nessun cookie, log dell’hosting: i trattamenti del sito, i tuoi diritti e l’autorità di controllo.';
+---
+{/* Scritta a mano sul modello generato da scripts/gen-legal-pages.py (l'italiano non è gestito dallo script) : stessi fatti, stesse condizioni GA4_ID / CLARITY_ID. */}
+<PageLayout title={title} description={description} lang={lang} noindex={true} breadcrumbs={[{ label: 'Privacy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Informativa sulla privacy</h1>
+    <p>Questa pagina descrive i trattamenti di dati personali legati all’uso di {SITE_URL}, ai sensi degli articoli 12-14 del Regolamento (UE) 2016/679 (GDPR) e del Codice in materia di protezione dei dati personali (D.Lgs. 196/2003).</p>
+    <h2>1. Titolare del trattamento</h2>
+    <LegalIdentity lang={lang} />
+    <p>Per qualsiasi domanda sui tuoi dati: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Non è stato designato un responsabile della protezione dei dati, poiché non ricorrono le condizioni dell’articolo 37 del GDPR.</p>
+    <h2>2. I dati inseriti restano nel tuo browser</h2>
+    <p>I calcoli vengono eseguiti dal tuo browser. Importi, date e situazioni che inserisci <strong>non sono trasmessi ad alcun server</strong>, non vengono salvati e non sono collegati ad alcun identificativo. Il sito non chiede account, nome né indirizzo e-mail. Un link di condivisione riporta i dati inseriti nell’indirizzo della pagina: condividilo solo con chi vuoi.</p>
+    <h2>3. Trattamenti effettuati</h2>
+    <h3>Log del fornitore di hosting</h3>
+    <p>Il fornitore di hosting registra per ogni richiesta l’indirizzo IP, data e ora, la pagina richiesta, il browser e la pagina di provenienza. Finalità: sicurezza del servizio e diagnosi dei guasti. Base giuridica: il legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR). Durata: quella prevista dalla politica del fornitore.</p>
+    {GA4_ID ? (<>
+    <h3>Misurazione del pubblico con Google Analytics</h3>
+    <p>Il sito usa Google Analytics 4 per contare le visite e capire quali pagine sono utili: pagine viste, provenienza, durata, tipo di dispositivo e di browser, paese e città approssimativi. Google Analytics installa due cookie: <code>_ga</code>, che distingue i visitatori con un identificativo casuale, e <code>_ga_{GA4_ID.replace('G-', '')}</code>, che conserva lo stato della visita. La loro durata è fissata a 13 mesi al massimo (390 giorni) e non viene prolungata a ogni visita; Google prevede 2 anni per impostazione predefinita.</p>
+    <p>L’indirizzo IP è anonimizzato: Google Analytics 4 non lo registra né lo conserva. L’indirizzo di pagina inviato è privo dei parametri, quindi i dati di un link di condivisione non vi compaiono. Il sito non mostra pubblicità: archiviazione pubblicitaria, personalizzazione degli annunci e segnali Google sono disattivati. Finalità: misurazione del pubblico. Base giuridica: legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR). Fornitore: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlanda. Conservazione presso Google: 14 mesi.</p>
+    </>) : (<>
+    <h3>Nessuna misurazione del pubblico</h3>
+    <p>Il sito non installa cookie e non usa strumenti di analisi del pubblico né di pubblicità.</p>
+    </>)}
+    {CLARITY_ID && (<>
+    <h3>Misurazione tecnica della stabilità con Microsoft Clarity, senza cookie</h3>
+    <p>Per individuare errori, pagine lente e pulsanti che non rispondono, il sito usa Microsoft Clarity senza cookie: ogni pagina vista riceve un identificativo distinto, il testo delle pagine e i dati inseriti sono mascherati. Base giuridica: legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR). Fornitore: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Irlanda. Conservazione: 30 giorni per le registrazioni, 13 mesi al massimo per i dati aggregati.</p>
+    </>)}
+    <h3>Messaggi che ci invii</h3>
+    <p>Se scrivi all’indirizzo di contatto, la tua e-mail e il tuo messaggio sono conservati il tempo necessario per risponderti ed eventualmente correggere un errore, poi cancellati al più tardi tre anni dopo l’ultimo scambio. Base giuridica: legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR).</p>
+    <h2>4. Destinatari</h2>
+    <p>Nessun dato viene venduto, affittato o ceduto. Vi accedono il fornitore di hosting{GA4_ID && ', Google Ireland Limited per Google Analytics'}{CLARITY_ID && ', Microsoft Ireland Operations Limited per Clarity'}, come responsabili del trattamento ai sensi dell’articolo 28 del GDPR. Nessuna concessionaria pubblicitaria interviene sul sito.</p>
+    <h2>5. Trasferimenti fuori dall’Unione europea</h2>
+    <p>I log dell’hosting possono essere trattati negli Stati Uniti.{GA4_ID && ' I dati di Google Analytics possono essere trasferiti a Google LLC, negli Stati Uniti.'}{CLARITY_ID && ' Quelli di Clarity a Microsoft Corporation, negli Stati Uniti.'} Questi trasferimenti si basano sul quadro UE-USA per la protezione dei dati (EU–U.S. Data Privacy Framework) e sulle clausole contrattuali tipo della Commissione europea.</p>
+    <h2>6. I tuoi diritti</h2>
+    <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, opposizione e portabilità (articoli 15-22 del GDPR). Scrivi a <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>; rispondiamo entro un mese. Senza account utente, di solito non abbiamo alcun dato che ti identifichi: in tal caso te lo diremo.</p>
+    {GA4_ID && (<p>Per opporti alla misurazione del pubblico senza scriverci: blocca o cancella i cookie nelle impostazioni del browser, oppure installa il <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">componente di disattivazione di Google Analytics</a>.</p>)}
+    {CLARITY_ID && (<p>Per la misurazione della stabilità: blocca il dominio <code>clarity.ms</code> nel browser o con un blocco dei contenuti.</p>)}
+    <p>Puoi proporre reclamo all’autorità di controllo: {LEGAL.supervisoryAuthority} (<a href={LEGAL.supervisoryAuthorityUrl} rel="nofollow noopener" target="_blank">{LEGAL.supervisoryAuthorityUrl}</a>). In Italia puoi rivolgerti anche al Garante per la protezione dei dati personali.</p>
+    <h2>7. Nessuna decisione automatizzata</h2>
+    <p>Il risultato di un calcolo è una stima fatta su tua richiesta, con i tuoi dati, nel tuo browser. Non produce effetti giuridici e non è una decisione automatizzata ai sensi dell’articolo 22 del GDPR. Non viene effettuata alcuna profilazione.</p>
+    <p>Vedi anche la pagina <a href={route('cookies', lang)}>cookie</a>. Ultimo aggiornamento: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

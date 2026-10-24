@@ -1,0 +1,62 @@
+---
+/**
+ * Rendu d'une page de contenu (racine de langue comprise). Ordre (RECETTE §5, §9.3, §21) : H1 et
+ * chapeau, bloc citable replié à sa première phrase, calculateur (premier écran), signature, corps.
+ * FAQ, pages liées, sources et auteur viennent du PageLayout. Une racine de langue ajoute l'index
+ * de ses pages.
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Tool from './Tool.astro';
+import { route, ROUTES, HOME_ID, type Locale } from '../i18n/routes';
+import { label, navCategories } from '../i18n/nav';
+import { t } from '../i18n/ui';
+import { pageById } from '../lib/pages';
+import { helpers } from '../lib/helpers';
+import { SOURCES, sourceLabel } from '../data/sources';
+import { articleSchema, faqSchema, breadcrumbSchema, webPageSchema, webApplicationSchema, websiteSchema, organizationSchema } from '../lib/seo';
+import { AUTHOR_NAME } from '../data/site-config';
+import type { PageDef } from '../lib/types';
+interface Props { page: PageDef; lang: Locale }
+const { page, lang } = Astro.props;
+const x = page.texts[lang]!;
+const ui = t(lang);
+const path = route(page.id, lang);
+const racine = x.slug === '';
+const H = helpers(lang);
+const resume = x.resume(H);
+const faqs = x.faqs(H);
+const jsonLd = racine
+  ? [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang })]
+  : [articleSchema({ title: x.h1, description: x.description, path, lang }), webPageSchema({ name: x.h1, description: x.description, path, lang }), breadcrumbSchema([{ name: ui.breadcrumbHome, path: route('home', lang) }, { name: x.nav, path }]), webApplicationSchema({ name: x.h1, description: x.description, path, lang })];
+if (faqs.length) jsonLd.push(faqSchema(faqs, lang));
+const related = page.related.filter((id) => ROUTES.some((r) => r.id === id) && id !== page.id).map((id) => ({ href: route(id, lang), name: label(id, lang), description: pageById(id)?.texts[lang]?.card ?? pageById(id)?.texts.en?.card ?? '' }));
+const sources = page.sources.map((k) => ({ name: sourceLabel(k, lang), url: SOURCES[k].url }));
+const methodHref = route('method', lang);
+const groupes = racine ? navCategories(lang) : [];
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={faqs} related={related} sources={sources} breadcrumbs={racine ? [] : [{ label: x.nav }]}>
+  <article>
+    <header class="mb-3">
+      <h1 class={racine ? 'text-3xl font-bold text-navy-900 md:text-4xl' : 'text-2xl font-bold text-navy-900 md:text-3xl'}>{x.h1}</h1>
+      <p class="mt-1 text-base text-navy-700 md:text-lg">{x.intro}</p>
+    </header>
+    <Clamp text={resume} lang={lang} id={`clamp-${page.id}`} class="mb-3" />
+    <div data-outil>
+      <Tool page={page} lang={lang} methodHref={methodHref} />
+    </div>
+    <p class="mt-2 text-sm text-navy-600" data-chrome>{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('editorial', lang)} class="underline hover:text-navy-900">{ui.editorialPolicy}</a> · <a href={methodHref} class="underline hover:text-navy-900">{label('method', lang)}</a></p>
+    <div class="prose prose-slate mt-6 max-w-none">
+      <Fragment set:html={x.body(H)} />
+    </div>
+    {racine && groupes.length > 0 && (
+      <section class="mt-12" data-chrome>
+        <h2 class="mb-4 text-2xl font-bold text-navy-900">{ui.allPages}</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {groupes.map((g) => (<div><h3 class="mb-2 font-semibold text-navy-900">{g.label}</h3><ul class="space-y-1 text-sm">{g.links.filter((k) => k.href !== path).map((k) => <li><a href={k.href} class="text-accent-700 hover:underline">{k.label}</a></li>)}</ul></div>))}
+        </div>
+        <p class="mt-6 text-sm text-navy-700"><a href={methodHref} class="underline">{label('method', lang)}</a> · <a href={route('about', lang)} class="underline">{label('about', lang)}</a></p>
+      </section>
+    )}
+  </article>
+</PageLayout>

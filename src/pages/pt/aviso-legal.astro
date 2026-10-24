@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { AUTHOR_NAME, CLARITY_ID, CONTACT_EMAIL, GA4_ID, LAST_UPDATED, LEGAL, SITE_NAMES, SITE_URL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+const lang = 'pt';
+const title = `Aviso legal – ${SITE_NAMES[lang]}`;
+const description = 'Editor, responsável pelos conteúdos, alojamento, ausência de aconselhamento, propriedade intelectual, origem dos coeficientes, dados pessoais e lei aplicável.';
+---
+<PageLayout title={title} description={description} lang={lang} noindex={true} breadcrumbs={[{ label: 'Aviso legal' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Aviso legal</h1>
+    <p>Informações sobre o titular do site publicadas nos termos do artigo 10.º do Decreto-Lei n.º 7/2004, sobre o comércio eletrónico.</p>
+    <h2>Editor</h2>
+    <LegalIdentity lang={lang} />
+    <p>Responsável pelos conteúdos de {SITE_URL}: {AUTHOR_NAME}. Contacto: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Alojamento</h2>
+    <LegalIdentity mode="hosting" lang={lang} />
+    <h2>Objeto do site e ausência de aconselhamento</h2>
+    <p>O site disponibiliza gratuitamente simuladores e explicações, a título informativo. Os resultados são estimativas calculadas com os coeficientes oficiais e as normas citadas em cada página; não constituem aconselhamento personalizado nem substituem o contrato. Método e limites: <a href={route('method', lang)}>metodologia</a>.</p>
+    <h2>Origem dos dados</h2>
+    <p>Os coeficientes anuais de atualização das rendas são apurados pelo INE e publicados por aviso no Diário da República; cada valor é citado com o aviso que o publicou. O site não tem ligação ao INE nem a qualquer entidade pública.</p>
+    <h2>Limites de responsabilidade</h2>
+    <p>Os parâmetros são atualizados e os cálculos verificados em casos de referência, sem garantia de ausência de erros. O editor não responde por decisões tomadas apenas com base numa estimativa. Um erro comunica-se pela página de <a href={route('contact', lang)}>contacto</a>.</p>
+    <h2>Propriedade intelectual</h2>
+    <p>Os textos, gráficos e código pertencem ao editor; as citações curtas são permitidas com uma ligação para a página de origem.</p>
+    <h2>Dados pessoais e cookies</h2>
+    {GA4_ID ? (<p>O que introduz nos simuladores não sai do seu navegador. O site instala cookies de medição de audiência do Google Analytics (<code>_ga</code>, <code>_ga_{GA4_ID.replace('G-', '')}</code>, 13 meses no máximo), sem publicidade{CLARITY_ID && '; a estabilidade é medida com o Microsoft Clarity, sem cookies'}. Detalhes: <a href={route('privacy', lang)}>política de privacidade</a> e página de <a href={route('cookies', lang)}>cookies</a>.</p>) : (<p>O que introduz nos simuladores não sai do seu navegador e o site não instala cookies{CLARITY_ID && '; a estabilidade é medida de forma anónima com o Microsoft Clarity, sem cookies'}. Veja a <a href={route('privacy', lang)}>política de privacidade</a> e a página de <a href={route('cookies', lang)}>cookies</a>.</p>)}
+    <h2>Lei aplicável</h2>
+    <p>Lei francesa, onde o editor está estabelecido, sem prejuízo da proteção que a lei portuguesa confere aos consumidores residentes em Portugal. Foro: {LEGAL.jurisdiction}. Atualização: {LAST_UPDATED}.</p>
+  </div>
+</PageLayout>

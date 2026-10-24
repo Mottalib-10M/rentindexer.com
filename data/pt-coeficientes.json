@@ -1,0 +1,46 @@
+{
+ "retrieved_at": "2026-10-24",
+ "licence": "Acto oficial publicado no Diário da República (aviso do INE) ; os actos oficiais não são objecto de protecção (Código do Direito de Autor, art. 7.º). Fonte citada : INE / Diário da República.",
+ "regra": "Lei n.º 6/2006 (NRAU), art. 24.º ; Código Civil, art. 1077.º : coeficiente = variação média dos últimos 12 meses do índice de preços no consumidor sem habitação, disponível a 31 de agosto, publicado pelo INE no Diário da República até 30 de outubro ; aplica-se no ano civil seguinte, com aviso escrito de 30 dias ; coeficientes não aplicados podem ser recuperados até três anos.",
+ "coeficientes": {
+  "2027": {
+   "valor": 1.0256,
+   "aviso": "Aviso n.º 24199/2026/2",
+   "data_dr": "2026-10-01",
+   "verificado": "título do aviso lido em diariodarepublica.pt (2026-10-24) ; valor concordante Cuatrecasas, DECO Proteste, APCMC"
+  },
+  "2026": {
+   "valor": 1.0224,
+   "aviso": "Aviso n.º 23174/2025/2",
+   "verificado": "PDF do DR lido (sources/dr-aviso-23174-2025-coef-2026.pdf)",
+   "data_dr": "2025-09-19"
+  },
+  "2025": {
+   "valor": 1.0216,
+   "aviso": "Aviso n.º 23099/2024/2",
+   "verificado": "PDF do DR lido (sources/dr-aviso-23099-2024-coef-2025.pdf)",
+   "data_dr": "2024-10-18"
+  },
+  "2024": {
+   "valor": 1.0694,
+   "aviso": "Aviso n.º 20980-A/2023",
+   "verificado": "PDF do DR lido (sources/dr-aviso-20980A-2023-coef-2024.pdf)",
+   "data_dr": "2023-10-30"
+  },
+  "2023": {
+   "valor": 1.02,
+   "aviso": "Lei n.º 19/2022, de 21 de outubro, art. 2.º",
+   "verificado": "PDF do DR lido (sources/dr-lei-19-2022-coef-2023.pdf)",
+   "data_dr": "2022-10-21"
+  }
+ },
+ "regle_publication": "Tous les coefficients de ce fichier ont été relus au Diário da República (phase 2, 2026-10-24).",
+ "arredondamento": "NRAU art. 25.º (redação da Lei n.º 31/2012) : renda arredondada para a unidade cêntimo imediatamente superior",
+ "urls": {
+  "2027": "https://diariodarepublica.pt/dr/detalhe/aviso/24199-2026-1175645456",
+  "2026": "https://diariodarepublica.pt/dr/detalhe/aviso/23174-2025-935742337",
+  "2025": "https://files.diariodarepublica.pt/2s/2024/10/203000000/0005900059.pdf",
+  "2024": "https://diariodarepublica.pt/dr/detalhe/aviso/20980-a-2023-223473619",
+  "2023": "https://diariodarepublica.pt/dr/legislacao-consolidada/lei/2022-202436963"
+ }
+}

@@ -1,0 +1,25 @@
+---
+/** Calculateur d'une page, avec les réglages de sa fiche (content/pages.ts). */
+import FrIrlCalc from './calc/FrIrlCalc';
+import FrSommeCalc from './calc/FrSommeCalc';
+import BeCalc from './calc/BeCalc';
+import BeIndiceCalc from './calc/BeIndiceCalc';
+import EsCalc from './calc/EsCalc';
+import ItCalc from './calc/ItCalc';
+import PtCalc from './calc/PtCalc';
+import AtCalc from './calc/AtCalc';
+import HubCalc from './calc/HubCalc';
+import type { PageDef, Lang } from '../lib/types';
+interface Props { page: PageDef; lang: Lang; methodHref: string }
+const { page, lang, methodHref } = Astro.props;
+const tp = (page.toolProps ?? {}) as Record<string, any>;
+---
+{page.tool === 'fr-irl' && <FrIrlCalc client:load lang={lang} mode={tp.mode} trimestre={tp.trimestre} methodHref={methodHref} />}
+{page.tool === 'fr-somme' && <FrSommeCalc client:load lang={lang} serie={tp.serie} methodHref={methodHref} />}
+{page.tool === 'be' && <BeCalc client:load lang={lang} region={tp.region} methodHref={methodHref} />}
+{page.tool === 'be-indice' && <BeIndiceCalc client:load lang={lang} methodHref={methodHref} />}
+{page.tool === 'es' && <EsCalc client:load lang={lang} vista={tp.vista} pacto={tp.pacto} methodHref={methodHref} />}
+{page.tool === 'it' && <ItCalc client:load lang={lang} modo={tp.modo} methodHref={methodHref} />}
+{page.tool === 'pt' && <PtCalc client:load lang={lang} ano={tp.ano} methodHref={methodHref} />}
+{page.tool === 'at' && <AtCalc client:load lang={lang} modo={tp.modo} methodHref={methodHref} />}
+{page.tool === 'hub' && <HubCalc client:load lang={lang} methodHref={methodHref} />}

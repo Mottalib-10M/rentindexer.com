@@ -1,0 +1,23 @@
+---
+/** À propos (page de confiance, RECETTE §8.2), avec la politique éditoriale (#editorial) et le contact (#contact). Texte : content/<langue>/_site.ts ; `<!--identite-->` place l'identité légale. */
+import PageLayout from '../layouts/PageLayout.astro';
+import LegalIdentity from './LegalIdentity.astro';
+import { route, type Locale } from '../i18n/routes';
+import { siteText } from '../lib/pages';
+import { helpers } from '../lib/helpers';
+import { t } from '../i18n/ui';
+import { breadcrumbSchema, profilePageSchema } from '../lib/seo';
+interface Props { lang: Locale }
+const { lang } = Astro.props;
+const x = siteText(lang).about;
+const path = route('about', lang);
+const [a, b = ''] = x.body(helpers(lang)).split('<!--identite-->');
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: t(lang).breadcrumbHome, path: route('home', lang) }, { name: x.h1, path }])]} breadcrumbs={[{ label: x.h1 }]}>
+  <header class="mb-6"><h1 class="text-3xl font-bold text-navy-900 md:text-4xl">{x.h1}</h1></header>
+  <div class="prose prose-slate max-w-none">
+    <Fragment set:html={a} />
+    <LegalIdentity lang={lang} />
+    <Fragment set:html={b} />
+  </div>
+</PageLayout>

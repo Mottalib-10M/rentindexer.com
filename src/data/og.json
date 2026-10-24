@@ -1,0 +1,55 @@
+{
+ "accent": "#1F3A93",
+ "symbol": "IDX",
+ "variants": [
+  {
+   "file": "og-fr.png",
+   "title": "Votre loyer indexé\nau centime, indice officiel",
+   "subtitle": "IRL Insee · indice santé Statbel · règles DPE et PEB",
+   "badge": "Indices relus à la source, datés",
+   "brand": "Loyer indexé"
+  },
+  {
+   "file": "og-nl.png",
+   "title": "Uw geïndexeerde huur\nmet de gezondheidsindex",
+   "subtitle": "Vlaanderen · Brussel · Wallonië · correctiefactoren",
+   "badge": "Indexcijfers van Statbel met hun maand",
+   "brand": "Huur geïndexeerd"
+  },
+  {
+   "file": "og-es.png",
+   "title": "Tu renta actualizada\ncon el índice que toca",
+   "subtitle": "IPC · IRAV · tope del 2 % del RDL 29/2026",
+   "badge": "Datos del INE con su fecha",
+   "brand": "Renta actualizada"
+  },
+  {
+   "file": "og-it.png",
+   "title": "Il canone aggiornato\ncon l'indice FOI Istat",
+   "subtitle": "75 % o 100 % · cedolare secca · uso commerciale",
+   "badge": "Indici Istat con il mese di riferimento",
+   "brand": "Canone aggiornato"
+  },
+  {
+   "file": "og-pt.png",
+   "title": "A sua renda atualizada\npelo coeficiente do INE",
+   "subtitle": "Coeficiente 2027 · anos em atraso · carta ao inquilino",
+   "badge": "Coeficientes publicados no Diário da República",
+   "brand": "Renda atualizada"
+  },
+  {
+   "file": "og-de.png",
+   "title": "Ihre wertgesicherte Miete\nnach dem MieWeG",
+   "subtitle": "VPI Statistik Austria · Halbierung über 3 % · MRG-Deckel",
+   "badge": "Indexwerte mit Quelle und Datum",
+   "brand": "Miete wertgesichert"
+  },
+  {
+   "file": "og-en.png",
+   "title": "Your indexed rent\nsix countries, official indices",
+   "subtitle": "France · Belgium · Spain · Italy · Portugal · Austria",
+   "badge": "Each index with its source and date",
+   "brand": "Rent Indexer"
+  }
+ ]
+}

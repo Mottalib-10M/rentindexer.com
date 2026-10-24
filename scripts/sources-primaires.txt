@@ -1,0 +1,14 @@
+# Statbel, office belge de statistique (SPF Économie) : publie l'indice santé mensuel, base de toute indexation de loyer en Belgique
+statbel.fgov.be
+# Région de Bruxelles-Capitale, portail officiel : règles d'indexation et facteur de correction PEB des loyers bruxellois
+be.brussels
+# Service public de Wallonie, portail officiel : démarche « indexer un loyer » et limitation selon le certificat PEB
+wallonie.be
+# Gouvernement flamand, portail officiel : huurprijsindexatie et correctiefactoren selon le label EPC
+vlaanderen.be
+# Normattiva, banca dati ufficiale della legislazione italiana (Poligrafico dello Stato) : testo vigente della legge 392/1978 e del D.Lgs. 23/2011
+normattiva.it
+# Diário da República, jornal oficial português : avisos do INE com o coeficiente anual de atualização das rendas
+diariodarepublica.pt
+# Statistik Austria, Bundesanstalt : Verbraucherpreisindex VPI 2020 und VPI 2025, Grundlage des Mieten-Wertsicherungsgesetzes
+statistik.at

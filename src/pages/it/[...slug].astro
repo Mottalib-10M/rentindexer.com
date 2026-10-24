@@ -1,0 +1,9 @@
+---
+/** Pages de contenu (it) : une fiche de src/content/pages.ts + un texte src/content/it/<id>.ts. */
+import ContentPage from '../../components/ContentPage.astro';
+import { PAGES } from '../../lib/pages';
+import type { PageDef } from '../../lib/types';
+export function getStaticPaths() { return PAGES.filter((p) => p.texts.it).map((page) => ({ params: { slug: page.texts.it!.slug || undefined }, props: { page } })); }
+const { page } = Astro.props as { page: PageDef };
+---
+<ContentPage page={page} lang="it" />

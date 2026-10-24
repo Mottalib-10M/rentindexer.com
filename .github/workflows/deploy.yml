@@ -1,0 +1,72 @@
+name: Indices officiels et déploiement sur GitHub Pages
+
+# Calendrier des sources (heures UTC) : Insee publie l'IRL vers le 15 de janvier, avril, juillet et
+# octobre, l'ILC et l'ILAT en fin de trimestre, l'IPC vers le 15 de chaque mois ; Statbel publie
+# l'indice santé le dernier jour ouvrable du mois ; l'INE espagnol publie l'IPC et l'IRAV vers le
+# 12-15 du mois suivant ; l'Istat publie le FOI définitif vers le 15-17 ; Statistik Austria publie le
+# VPI vers le 15-20. Une passe chaque jour ouvrable : update-data.py n'écrit un fichier que si la
+# lecture est complète et cohérente (sinon il sort en erreur et rien n'est publié), et le commit
+# n'a lieu que si une valeur a changé. Le coefficient portugais (Diário da República, au plus tard
+# le 30 octobre) se saisit à la main dans data/pt-coeficientes.json, avec l'aviso.
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch:
+  schedule:
+    - cron: '30 6 * * 1-5'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+      - name: Indices officiels (Insee, Statbel, INE, Istat, Statistik Austria)
+        run: python3 scripts/update-data.py
+      - name: Tests du moteur sur les nouvelles valeurs
+        run: npx vitest run
+      - name: Enregistrer les données
+        run: |
+          git config user.name "indices-officiels"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Indices officiels : nouvelle publication ($(date -u +%F))"
+            git push
+          fi
+      - name: Build
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

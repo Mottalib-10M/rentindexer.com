@@ -1,0 +1,100 @@
+  
+   
+Indice dei prezzi per le rivalutazioni monetarie  
+  
+L’indice dei prezzi al consumo per le famiglie di operai ed impiegati (FOI) al netto dei tabacchi viene 
+utilizzato per l’adeguamento periodico dei valori monetari e viene pubblicato sulla Gazzetta Ufficiale 
+ai sensi dell’art. 81 della legge n. 392 del 27 luglio 1978.  
+L’Istat ha avviato la produzione mensile di tale indicatore a partire da febbraio 1992, in ottemperanza 
+alla legge n.81 del 5 febbraio 1992. Pertanto, nel calcolo delle variazioni percentuali dell’indice e nel 
+calcolo dei coefficienti di rivalutazione, occ orre prestare attenzione all’intervallo di tempo preso in 
+considerazione: per gli intervalli di tempo a cavallo del febbraio 1992, occorre utilizzare nel calcolo 
+uno specifico coefficiente Cst , pari a 1,0009.   
+Con i dati relativi al mese di gennaio 20 26, l’Istat avvia la pubblicazione delle nuov e serie 
+dell’indice generale FOI senza tabacchi: 
+• secondo la nuova classificazione ECOICOP v2; 
+• con base di riferimento 2025=100. 
+In ottemperanza alla più recente normativa europea, l’Istat ha adottato la nuova classificazione delle 
+voci di spesa per il calcolo e la diffusione degli indici sui prezzi al consumo, operando la ricostruzione 
+delle serie storiche dal 1996 al 2025. Si sott olinea che la metodologia adottata per la ricostruzione 
+garantisce che gli indici generali (FOI e FOI senza tabacchi) restino invariati, a livello sia nazionale 
+sia provinciale.  
+Le due basi di riferimento precedenti sono rispettivamente il 2015 e il 2010. Il coefficiente di raccordo 
+da base 2015 a base 2025 è 1,214, da base 2010 a base 2015 è 1,071 e da base 1995 a base 2010 
+è pari a 1,3731. 
+ 
+Di seguito viene descritto il metodo di calcolo delle variazioni dell’indice, dei coefficienti per le 
+rivalutazioni monetarie e il loro utilizzo per l’adeguamento dei valori monetari.  
+Si premette che:  
+• l’indice mensile è calcolato e diffuso con l’arrotondamento ad 1 decimale;  
+• l’indice medio annuo è calcolato mediante media aritmetica, arrotondata ad 1 decimale, degli 
+indici mensili.  
+   
+ Variazioni percentuali tra indici mensili o medi annui  
+La variazione percentuale tra indici mensili (o indici medi annui) con medesima base di riferimento, 
+è pari al rapporto degli indici mensili (o indici medi annui) messi a confronto, per 100, meno 100; il 
+risultato finale è arrotondato a 1 decimale.  
+Se gli indici sono espressi in base di riferimento diversa, la variazione percentuale tra indici è pari al 
+rapporto degli indici messi a confronto, moltiplicato per i coefficienti di raccordo tra basi contigue 1 
+(tanti quanti sono i cambiamenti di base nell’intervallo di tempo considerato), per 100, meno 100; il 
+risultato finale è arrotondato a 1 decimale.   
+  
+Esempio 1. Si voglia calcolare la variazione dell’indice generale FOI senza tabacchi tra il mese di 
+gennaio 2009 e il mese di gennaio 20 26. L’indice generale FOI senza tabacchi di gennaio 2009, 
+avente base 1995=100, è 134,2; quello di gennaio 2026, avente base 2025=100, è 100,4 . Tra 
+gennaio 2009 e gennaio 2026 ci sono state 3 cambi di base (base 2010, base 2015 e base 2025). Il 
+coefficiente di raccordo da base 1995 a base 2010 è pari a 1,373; quello da base 2010 a base 2015 
+è pari a 1,071 e quello da base 2015 a base 2026 è pari a 1,214.  Il calcolo quindi è:  
+𝑉𝑎𝑟 = 𝐴𝑟𝑟1 (
+100,4
+134,2 𝑥1,373𝑥1,071𝑥1,214𝑥100 − 100) = +33,6%  
+ 
+1 Il coefficiente di raccordo è pari all’indice medio del nuovo anno base espresso nella base precedente, diviso 100. Per costruzione, esso è pari 
+a un numero con al massimo 3 decimali.  
+  
+Esempio 2. Si voglia calcolare la variazione dell’indice generale FOI senza tabacchi tra il mese di 
+gennaio 1991 e il mese di gennaio 2026. L’indice generale FOI con tabacchi di gennaio 1991, avente 
+base 1989=100, è 110,0; quello generale FOI senza tabacchi di gennaio 20 26, avente base 
+2025=100, è 100,4. Il coefficiente di raccordo da base 1989 a base 1992 è pari a 1,189, il coefficiente 
+di raccordo da base 1992 a base 1995 è pari a 1,141; quello da base 1995 a base 2010 è pari a 
+1,373; quello da base 2010 a base 201 5 è pari a 1,071 e quello da base 2015 a base 2026 è pari a 
+1,214. Poiché il periodo preso in considerazione è a cavallo del febbraio 1992, si deve utilizzare  
+anche il coefficiente Cst = 1,0009. Il calcolo quindi è:  
+𝑉𝑎𝑟 = 𝐴𝑟𝑟1 (
+100,4
+110,0 𝑥1,189𝑥1,141𝑥1,373𝑥1,071𝑥1,214𝑥1,0009𝑥100 − 100) = +121.2%  
+ Coefficienti per le rivalutazioni monetarie  
+I coefficienti per le rivalutazioni monetarie sono dati dal rapporto degli indici (mensili o medi annui) 
+messi a confronto, se questi sono espressi nella stessa base di riferimento.  
+Se gli indici sono in base diversa, i coefficienti per le rivalutazioni sono pari al rapporto degli indici 
+messi a confronto moltiplicato per i coefficienti di raccordo tra basi contigue, tanti quanti sono i 
+cambiamenti di base nell’intervallo di tempo considerato.    
+Se il periodo preso in considerazione è a cavallo del febbraio 1992, occorre utilizzare nel calcolo 
+anche il coefficienteCst = 1,0009.  
+In tutti i casi, il calcolo viene effettuato in un unico passaggio, senza l’uso di termini arrotondati, e il 
+risultato finale è arrotondato a 3 decimali.  
+  
+Esempio 3. Il coefficiente di rivalutazione per tradurre i valori monetari del mese di gennaio 2009 in 
+valuta del mese di gennaio 2026 è (si veda anche l’Esempio 1):  
+𝐶𝑅𝑀 = 𝐴𝑟𝑟3 (100,4
+134,2 𝑥1,373𝑥1,071𝑥1,214) = 1,336 
+Esempio 4. Il coefficiente di rivalutazione per tradurre i valori monetari del mese di gennaio 1991 in 
+valuta del mese di gennaio 2026 è (si veda anche l’Esempio 2):   
+𝐶𝑅𝑀 = 𝐴𝑟𝑟3 (
+100,4
+110,0 𝑥1,189𝑥1,141𝑥1,373𝑥1,071𝑥1,214𝑥1,0009) = 2,212 
+ Rivalutazioni monetarie  
+Per tradurre somme di denaro di un determinato mese (anno) in valuta di un mese (anno) successivo 
+possono essere alternativamente utilizzati la variazione percentuale dell’indice nel periodo preso in 
+considerazione o il coefficiente di rivalutazione monetaria.   
+  
+Esempio 5. Si voglia tradurre in valuta del mese di gennaio 2026, la somma di lire 100.000 del mese 
+di gennaio 1991:   
+➢ si applica all’importo in lire la variazione percentuale degli indici nel periodo considerato, pari 
+a +81,0% (si veda l’Esempio 2), si somma il risultato all’importo iniziale, e poi si effettua la 
+conversione in euro  
+ 100.000L.×121,2%=100.000L.×1,212=121.200L.  
+➢ si moltiplica la somma in lire per il coefficiente di rivalutazione pari a 1,810 (si veda 
+l’Esempio 4), e poi si effettua la conversione in euro   
+100.000L.+121.200L=221.200L.1936,27= 114,24€ 
+  2 

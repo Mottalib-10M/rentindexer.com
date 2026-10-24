@@ -1,5 +1,5 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://eu-rent-indexation.example";
+export const SITE_URL = "https://rentindexer.com";
 export const SITE_NAMES: Record<string, string> = {"fr": "Loyer indexé", "es": "Renta actualizada", "it": "Canone aggiornato", "pt": "Renda atualizada", "en": "Rent Indexer", "nl": "Huur geïndexeerd", "de": "Miete wertgesichert"};
 export const LANG_TAGS: Record<string, string> = {"fr": "fr-FR", "es": "es-ES", "it": "it-IT", "pt": "pt-PT", "en": "en", "nl": "nl-BE", "de": "de-AT"};
 export const OG_LOCALES: Record<string, string> = {"fr": "fr_FR", "es": "es_ES", "it": "it_IT", "pt": "pt_PT", "en": "en_GB", "nl": "nl_BE", "de": "de_AT"};
@@ -16,7 +16,7 @@ export const AUTHOR_DESC: Record<string, string> = {"fr": "Radif Partners publie
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"fr": ["Indice de référence des loyers (IRL)", "Révision annuelle du loyer (loi du 6 juillet 1989, art. 17-1)", "Indice des loyers commerciaux (ILC) et ILAT", "Indice santé belge et indexation régionale", "Gel des loyers des logements classés F et G"], "es": ["Índice de Referencia de Arrendamientos de Vivienda (IRAV)", "Actualización de la renta por IPC", "Artículo 18 de la Ley de Arrendamientos Urbanos", "Real Decreto-ley 29/2026", "Arrendamiento de local comercial"], "it": ["Indice FOI senza tabacchi", "Aggiornamento ISTAT del canone", "Legge 392/1978, art. 32", "Cedolare secca", "Rivalutazione monetaria"], "pt": ["Coeficiente de atualização anual das rendas", "NRAU, art. 24.º", "Aumento das rendas em 2027", "Comunicação de aumento ao inquilino", "Recuperação de coeficientes não aplicados"], "en": ["Rent indexation in the EU", "French IRL", "Belgian health index", "Spanish IRAV", "Austrian Mieten-Wertsicherungsgesetz"], "nl": ["Gezondheidsindex (Statbel)", "Huurindexatie in Vlaanderen", "Correctiefactoren voor EPC-labels D, E en F", "Vlaams Woninghuurdecreet", "Huurindexatie in Brussel en Wallonië"], "de": ["Mieten-Wertsicherungsgesetz (MieWeG)", "Verbraucherpreisindex Österreich (VPI 2020 und VPI 2025)", "Wertsicherungsklausel im Mietvertrag", "Richtwert- und Kategoriemieten nach dem MRG", "Wertsicherung von Geldbeträgen"]};
-export const CONTACT_EMAIL = "contact@eu-rent-indexation.example";
+export const CONTACT_EMAIL = "contact@rentindexer.com";
 export const THEME_COLOR = '#1F3A93';
 export const LOGO_SYMBOL = 'IDX';
 export const BING_VERIFY_CODE = '';

@@ -8,6 +8,7 @@ import EsCalc from './EsCalc';
 import ItCalc from './ItCalc';
 import PtCalc from './PtCalc';
 import AtCalc from './AtCalc';
+import SelectField from '../ui/SelectField';
 import { useParams, type L } from './kit';
 
 const PAYS = [
@@ -24,11 +25,8 @@ export default function HubCalc({ lang = 'en', methodHref }: { lang?: L; methodH
   const p = PAYS[v.pays]?.k ?? 'fr';
   return (
     <div>
-      <div role="group" aria-label="Country of the rented property" className="not-prose mb-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
-        {PAYS.map((x, i) => (
-          <button key={x.k} type="button" aria-pressed={v.pays === i} onClick={() => set('pays')(i)}
-            className={`w-full rounded-lg border px-3 py-2 text-center text-sm font-medium ${v.pays === i ? 'border-accent-600 bg-accent-600 text-white' : 'border-navy-300 bg-white text-navy-800 hover:bg-navy-50'}`}>{x.label}</button>
-        ))}
+      <div className="not-prose mb-4">
+        <SelectField id="hub-pays" label="Country of the rented property" value={String(v.pays)} onChange={(x) => set('pays')(Number(x))} options={PAYS.map((x, i) => ({ value: String(i), label: x.label }))} />
       </div>
       {p === 'fr' && <FrIrlCalc lang={lang} methodHref={methodHref} />}
       {p === 'be' && <BeCalc lang={lang} methodHref={methodHref} />}
